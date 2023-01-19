@@ -1,16 +1,15 @@
 import Fastify from "fastify";
 import FastifyCors from "@fastify/cors";
+import { appRouter } from "./router";
 
 const app = Fastify();
 
 app.register(FastifyCors);
+app.register(appRouter);
 
-app.get("/habits", () => {
-  return "Habits";
-});
-
-app
-  .listen({
+app.listen(
+  {
     port: 4000
-  })
-  .then(() => console.log("Server is running..."));
+  },
+  () => console.info("Server is running on http://localhost:4000")
+);
