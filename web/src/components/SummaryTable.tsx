@@ -30,7 +30,13 @@ export function SummaryTable() {
 
       <div className="grid grid-rows-7 grid-flow-col gap-3">
         {summaryDates.map((date: Date) => {
-          return <HabitySquare key={date.toString()} />;
+          return (
+            <HabitySquare
+              key={date.toString()}
+              amount={5}
+              completed={Math.round(Math.random() * 5)}
+            />
+          );
         })}
 
         {amountOfDaysToFillSummaryTable > 0 &&
@@ -40,7 +46,7 @@ export function SummaryTable() {
                 <div
                   key={index}
                   className="h-10 w-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg opacity-40 cursor-not-allowed"
-                ></div>
+                />
               );
             }
           )}
